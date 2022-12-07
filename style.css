@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'Staatliches', cursive;
+  --ff-texting: 'Palanquin', sans-serif;
+  --ff-footer: 'Open Sans', sans-serif;
+
+  --hue: 233;
+  --bg-primary: hsl(var(--hue), 100%, 97%);
+  --bg-secondary: hsl(218, 17%, 62%);
+  --bg-secondary-logo: hsl(275, 18%, 79%);
+  --bg-secondary-h2: hsl(312, 91%, 96%);
+
+  --fc-primary: hsl(0, 0%, 100%);
+  --fc-secondary: hsl(274, 84%, 12%);
+  --fc-secondary-grey: hsl(232, 17%, 35%);
+  font-size: 62.5%;
+  /*Indicando que todo REM é igual a 10% do Pixel*/
+  --fs-body: 1.6rem;
+  --fs-heading: 4rem;
+  --fs-texting: 2rem;
+}
+
+body {
+  font-family: var(--ff-heading);
+  background-color: var(--bg-primary);
+  color: var(--fc-primary);
+  font-size: var(--fs-body);
+  font-weight: 400;
+}
+
+.page {
+  display: grid;
+  min-width: 32rem;
+  padding: 0;
+  margin: 0 auto;
+
+}
+
+
+header {
+  height: 27.9rem;
+  background-color: var(--bg-secondary);
+
+  margin-bottom: 15.2rem;
+
+  animation: leftright 2s;
+}
+
+header .logo-img {
+  width: 15.7rem;
+  height: 13.7rem;
+  padding: 3.2rem 0;
+
+  margin: 0 auto 4rem;
+}
+
+header h1 {
+  font-size: var(--fs-heading);
+  line-height: 3.4rem;
+  height: 4.9rem;
+  letter-spacing: 0.05em;
+
+  text-shadow: 0px 2px 2px rgba(8, 4, 4, 0.25);
+
+  padding: 4rem 0 3.6rem;
+
+  background-color: var(--bg-secondary-logo);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header p {
+  margin: 3rem 0 6rem;
+
+  padding: 1.4rem 3.2rem;
+
+  animation: rightleft 2s 50ms backwards;
+
+  color: var(--fc-secondary);
+  font-size: var(--fs-texting);
+  font-family: var(--ff-texting);
+
+  line-height: 1.5rem;
+  text-align: center;
+
+  padding: 0 3.6rem;
+
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+main {
+  display: grid;
+  gap: 3.2rem;
+
+  padding: 1.4rem 3.2rem 6rem;
+
+  animation: rightleft 2s 50ms backwards;
+}
+
+
+.card {
+  position: relative;
+
+  font-family: var(--ff-heading);
+
+  animation: downtop 700ms 50ms backwards;
+}
+
+.card img {
+
+  object-fit: cover;
+
+  filter: brightness(0.9);
+
+  transition: all 200ms;
+
+}
+
+.card img:hover {
+  transform: scale(1.1);
+
+  opacity: 0.8;
+}
+
+.card h2 span {
+  position: absolute;
+  bottom: 19.9rem;
+  right: 1.6rem;
+  top: 1.6rem;
+
+  border-radius: 2rem;
+  background-color: var(--bg-secondary-h2);
+
+  font-size: var(--fs-body);
+
+  color: var(--fc-secondary-grey);
+  padding: 0 2.3rem;
+  height: 3.4rem;
+
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  animation: topdown 700ms 50ms backwards;
+}
+
+footer {
+  display: none;
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* @media(min-width:750px) {
+  :root {
+    --fs-heading: 4.8rem;
+    --fs-texting: 2.4rem;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+
+  }
+
+  main p {
+    line-height: 2rem;
+  }
+
+}  */
+
+@media(min-width:900px) {
+  :root {
+    --fs-heading: 4.8rem;
+    --fs-texting: 2.4rem;
+  }
+
+  .page {
+    min-width: 37.7rem;
+    padding: 0;
+    margin: 0 auto;
+
+    grid-template-columns: 1fr 2fr;
+  }
+
+  header {
+    max-width: 37.7rem;
+    height:100%;
+    margin: 0;
+
+  }
+
+  header h1{
+    font-size: var(--fs-heading);
+    line-height:2.9rem;
+  }
+
+  header p {
+    font-size: var(--fs-texting);
+    line-height: 2rem;
+    color: var(--fc-primary);
+  }
+
+
+  main {
+    grid-template-areas: "A B C"
+      "D E F"
+      "G G G";
+
+    padding: 6.4rem 8.1rem;
+  }
+
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+
+  main div:nth-child(5) {
+    grid-area: E;
+  }
+
+  main div:nth-child(6) {
+    grid-area: F;
+  }
+
+  main footer {
+    margin: 0 5rem 0 16.4rem;
+    grid-area: G;
+  }
+
+  footer {
+    font-family: var(--ff-footer);
+    display: block;
+    font-weight: 400;
+    color: var(--fc-secondary-grey);
+
+  }
+
+  footer a {
+    text-decoration: none;
+    color: var(--fc-secondary-grey);
+    font-weight: 700;
+  }
+
+
+}
